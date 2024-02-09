@@ -10,7 +10,7 @@ import getProductBySKU from './utils/getProductBySKU.js';
 var access_token = "";
 const app = express();
 // const port = 3001;
-app.use(cors());
+app.use(cors("https://tweeshirt.vercel.app/"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
