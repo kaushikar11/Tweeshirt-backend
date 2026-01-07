@@ -48,10 +48,17 @@ async function createOrder(AUTH_KEY, customerDetails, productVariantId, rPrice, 
       body: JSON.stringify(body),
     });
 
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Printrove API error: ${response.status} - ${errorText}`);
+    }
+
     const json = await response.json();
-    console.log(json);
+    console.log('Order created successfully:', json);
+    return json;
   } catch (error) {
     console.error("Error creating order:", error);
+    throw error;
   }
 }
 
