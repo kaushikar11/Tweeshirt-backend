@@ -11,8 +11,8 @@ async function getPrintroveAuth() {
         'Accept': 'application/json',
       },
       body: JSON.stringify({
-        email: 'premguru1045@gmail.com',
-        password: 'Premguru*125',
+        email: process.env.PRINTROVE_EMAIL,
+        password: process.env.PRINTROVE_PASSWORD,
       }),
     });
 
